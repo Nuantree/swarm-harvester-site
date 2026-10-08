@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-08T09:57:03.041Z",
+  "browser": "141.0.7390.37",
+  "console": [
+    "Access to fetch at 'https://explorer.imd.fun/api/earned?wallet=0x047F606fD5b2BaA5f5C6c4aB8958E45CB6B054B7' from origin 'http://127.0.0.1:44561' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+    "Failed to load resource: net::ERR_FAILED"
+  ],
+  "failedRequests": [
+    {
+      "url": "https://explorer.imd.fun/api/earned?wallet=0x047F606fD5b2BaA5f5C6c4aB8958E45CB6B054B7",
+      "reason": "net::ERR_FAILED"
+    }
+  ],
+  "checks": [
+    "Live RPC deployment verification rendered successfully",
+    {
+      "lookupStatus": "The data service could not be reached. Retry, or import the API responses below."
+    },
+    {
+      "importedLaunch": "HA\nHARVEST\nLocked\n\nLaunch #1029 · \n0x1553…0452\n\nAllocation unlocks later. Refresh after the unlock time.\n\nImported record · verified against chain\n98,643.649815\nallocation"
+    }
+  ],
+  "walletConnected": false,
+  "broadcasts": 0
+}

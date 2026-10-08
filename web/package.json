@@ -1,0 +1,35 @@
+{
+  "name": "swarm-harvester-web",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "typecheck": "tsc --noEmit",
+    "build": "npm run typecheck && vite build && node scripts/export.mjs",
+    "preview": "vite preview --host 0.0.0.0",
+    "verify": "node scripts/verify.mjs",
+    "test": "tsx --test tests/*.test.ts",
+    "test:browser": "node tests/browser.mjs",
+    "format": "prettier --write src scripts tests vite.config.ts",
+    "check:format": "prettier --check src scripts tests vite.config.ts",
+    "check:live": "tsx scripts/live-check.ts"
+  },
+  "dependencies": {
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "viem": "2.38.5"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.10.2",
+    "@types/node": "24.7.2",
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
+    "@vitejs/plugin-react": "5.0.4",
+    "playwright": "1.56.1",
+    "prettier": "3.6.2",
+    "tsx": "4.20.6",
+    "typescript": "5.9.3",
+    "vite": "7.1.12"
+  }
+}

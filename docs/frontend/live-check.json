@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-08T09:52:01.242Z",
+  "checks": [
+    {
+      "name": "Configured RPC, application/dependency bytecode, seller immutables and live token metadata",
+      "status": "passed",
+      "result": {
+        "fee": 50,
+        "claimGas": 200000,
+        "symbol": "HARVEST",
+        "decimals": 18,
+        "checkedAt": 1791453121646,
+        "block": "26146901"
+      }
+    },
+    {
+      "name": "Attested pool initialized on configured StateView",
+      "status": "passed",
+      "result": true
+    },
+    {
+      "name": "Read-only HARVEST quote for 0.001 ETH from configured quoter",
+      "status": "passed",
+      "result": "98580915802984314293638"
+    },
+    {
+      "name": "ETH / IMD bridge discovery from configured PoolManager logs",
+      "status": "unavailable",
+      "message": "HTTP request failed.\n\nStatus: 400\nURL: https://eth.drpc.org\nRequest body: {\"method\":\"eth_getLogs\",\"params\":[{\"address\":\"0x000000000004444c5dc75cb358380d2e3de08a90\",\"topics\":[\"0xdd466e674ea557f56295e2d0218a125ea4b4f0f6f3307b95f85e6110838d6438\",null,\"0x0000000000000000000000000000000000000000000000000000000000000000\",\"0x000000000000000000000000d34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7\"],\"fromBlock\":\"0x18eced5\",\"toBlock\":\"0x18ed145\"}]}\n\nDetails: {\"message\":\"ranges over 10000 blocks are not supported on free plan\",\"code\":35}\nVersion: viem@2.38.5"
+    },
+    {
+      "name": "Public API launch and proof, dynamic on-chain round matching",
+      "status": "passed",
+      "result": {
+        "launchStatus": "live",
+        "chainId": 1,
+        "distributor": "0x77904bc88f1e3310af72eb7d394a12c76c3f9f70",
+        "token": "0x1553a3d4ae3eFA98fB9A0E261602Bc4D4d580452",
+        "round": "0",
+        "root": "0x8eaa2488f760161c65191bc57440b4382de97bc268186c21d61dc4aa208cd5a1"
+      }
+    }
+  ],
+  "broadcasts": 0
+}

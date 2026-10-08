@@ -1,0 +1,99 @@
+{
+  "date": "2026-10-08T09:57:03.445Z",
+  "browser": "141.0.7390.37",
+  "exportSubpath": "/preview/",
+  "checks": [
+    {
+      "name": "axe accessibility scan: disconnected desktop",
+      "status": "passed",
+      "violations": 0
+    },
+    {
+      "name": "Disconnected, missing wallet, invalid address, static subpath and keyboard focus",
+      "status": "passed"
+    },
+    {
+      "name": "Unknown chain: switch, add exact configured chain, switch again; round 1 proof resolution",
+      "status": "passed"
+    },
+    {
+      "name": "axe accessibility scan: connected quote",
+      "status": "passed",
+      "violations": 0
+    },
+    {
+      "name": "Claim receipt, refreshed balances, exact seller approval, guarded sale, pending lock and outcome logs",
+      "status": "passed"
+    },
+    {
+      "name": "Native HARVEST purchase: quote minimum, router calldata, simulation and no approvals",
+      "status": "passed"
+    },
+    {
+      "name": "HARVEST sale: separate token and Permit2 approvals, quote invalidation, account change",
+      "status": "passed"
+    },
+    {
+      "name": "API error is recoverable through imported responses; viewed beneficiary remains separate from payer",
+      "status": "passed"
+    },
+    {
+      "name": "Tiny output is rejected and expired quotes cannot request approval",
+      "status": "passed"
+    },
+    {
+      "name": "HARVEST transfer validates recipient and signs the reviewed amount",
+      "status": "passed"
+    }
+  ],
+  "consoleErrors": [],
+  "resourceFailures": [],
+  "screenshots": [
+    "docs/frontend/desktop.png",
+    "docs/frontend/mobile.png",
+    "docs/frontend/quoted-sale.png",
+    "docs/frontend/mobile-quote.png"
+  ],
+  "contrast": [
+    {
+      "selector": ".hero-copy",
+      "foreground": "rgb(90, 101, 91)",
+      "background": "rgb(245, 246, 239)",
+      "ratio": 5.6018821134218495
+    },
+    {
+      "selector": ".hero h1",
+      "foreground": "rgb(32, 45, 37)",
+      "background": "rgb(245, 246, 239)",
+      "ratio": 13.19536232396314
+    },
+    {
+      "selector": ".empty-state .button",
+      "foreground": "rgb(32, 45, 37)",
+      "background": "rgb(255, 254, 249)",
+      "ratio": 14.21036057595152
+    },
+    {
+      "selector": ".button.dark",
+      "foreground": "rgb(255, 254, 249)",
+      "background": "rgb(36, 63, 50)",
+      "ratio": 11.351415373671955
+    },
+    {
+      "selector": ".metric-label",
+      "foreground": "rgb(90, 101, 91)",
+      "background": "rgb(245, 246, 239)",
+      "ratio": 5.6018821134218495
+    },
+    {
+      "selector": ".fee-note",
+      "foreground": "rgb(90, 101, 91)",
+      "background": "rgb(255, 254, 249)",
+      "ratio": 6.032783547832817
+    }
+  ],
+  "limitations": [
+    "Mocked wallet/RPC interactions do not establish live transaction success.",
+    "No native screen reader, physical wallet or native 200% browser zoom was tested."
+  ]
+}

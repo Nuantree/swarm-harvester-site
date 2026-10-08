@@ -1,0 +1,89 @@
+{
+  "version": 1,
+  "launchId": "e3c2f693-9f28-46d0-af84-865a8e9f995a",
+  "chainId": 1,
+  "sourceCommit": "388f84e9ee292e9a411c0d80c14e8f5f506640eb",
+  "attestationHash": "c094a75a1278e729cbdac7ee17728c6e92ee61aba4401c96411dbbc51dd529cb",
+  "contracts": [
+    {
+      "name": "LaunchToken",
+      "address": "0x1553a3d4ae3efa98fb9a0e261602bc4d4d580452",
+      "abiHash": "38880b8e56d42ce900f744a7908c7139632a49f1c3f33385c64ceaed29d37bee",
+      "abiPath": "abi/LaunchToken.json"
+    },
+    {
+      "name": "SwarmHarvester",
+      "address": "0x390f407adad27a0f267479a8449d6a5c6daa93cf",
+      "abiHash": "927041b3716505381a578317645c9149d510226491b257286594ad107cb7f738",
+      "abiPath": "abi/SwarmHarvester.json"
+    },
+    {
+      "name": "SwarmSeller",
+      "address": "0xc20dbee43247461b57cbc781356ae2bd9de67db6",
+      "abiHash": "2e8203b6b6eb37ad04a5121c9d902d7f0667968001917f0ade51eabe38e890ac",
+      "abiPath": "abi/SwarmSeller.json"
+    }
+  ],
+  "poolKey": {
+    "fee": 12500,
+    "hooks": "0x784ff9a3ac5d88a30bfff6f7f2a270161fbe6000",
+    "currency0": "0x0000000000000000000000000000000000000000",
+    "currency1": "0x1553a3d4ae3efa98fb9a0e261602bc4d4d580452",
+    "tickSpacing": 60
+  },
+  "network": {
+    "chainId": 1,
+    "name": "Ethereum",
+    "testnet": false,
+    "rpcUrls": [
+      "https://ethereum-rpc.publicnode.com",
+      "https://eth.drpc.org"
+    ],
+    "explorer": "https://etherscan.io",
+    "nativeCurrency": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18
+    },
+    "faucets": [],
+    "uniswapV4": {
+      "poolManager": "0x000000000004444c5dc75cb358380d2e3de08a90",
+      "universalRouter": "0x66a9893cc07d91d95644aedd05d03f95e1dba8af",
+      "quoter": "0x52f0e24d1c21c8a0cb1e5a5dd6198556bd9e1203",
+      "stateView": "0x7ffe42c4a5deea5b0fec41c94c136cf115597227",
+      "positionManager": "0xbd216513d74c8cf14cf4747e6aaa6420ff64ee9e",
+      "permit2": "0x000000000022d473030f116ddee9f6b43ac78ba3"
+    },
+    "pairToken": {
+      "address": "0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7",
+      "symbol": "IMD",
+      "name": "Identity.md",
+      "decimals": 18
+    },
+    "otherPairTokens": [
+      {
+        "id": "fwa",
+        "address": "0xa0df17b5ac76ababa36e1450e2cbcd18a620c845",
+        "symbol": "FWA",
+        "name": "Fake World Assets",
+        "decimals": 18
+      }
+    ]
+  },
+  "walletAddChain": {
+    "chainId": "0x1",
+    "chainName": "Ethereum",
+    "rpcUrls": [
+      "https://ethereum-rpc.publicnode.com",
+      "https://eth.drpc.org"
+    ],
+    "nativeCurrency": {
+      "name": "Ether",
+      "symbol": "ETH",
+      "decimals": 18
+    },
+    "blockExplorerUrls": [
+      "https://etherscan.io"
+    ]
+  }
+}
