@@ -1,0 +1,29 @@
+{
+  "kind": "evm_project",
+  "token": {
+    "contract": "LaunchToken",
+    "name": "Swarm Harvester",
+    "symbol": "HARVEST",
+    "decimals": 18
+  },
+  "contracts": [
+    {
+      "contract": "SwarmHarvester",
+      "constructorArgs": []
+    },
+    {
+      "contract": "SwarmSeller",
+      "constructorArgs": [
+        "0x000000000004444c5dc75cB358380D2e3dE08A90",
+        "0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7"
+      ]
+    }
+  ],
+  "pool": {
+    "pairedCurrency": "0x0000000000000000000000000000000000000000",
+    "fee": 3000,
+    "tickSpacing": 60,
+    "initialPrice": "79228162514264337593543950336"
+  },
+  "notes": "HARVEST pairs with native ETH on Ethereum mainnet. SwarmHarvester submits reward claims to distributors, which pay the named accounts directly. SwarmSeller independently sells callers' approved launch tokens into IMD through Uniswap v4; its constructor arguments are the approved mainnet PoolManager and IMD addresses, respectively. Both application contracts have no owner and require no initialization calls. The factory supplies the LP, MerkleDistributor and initialization-only PoolInitializationGuard. Policy and signed artifact linkage are handled by launch services."
+}
