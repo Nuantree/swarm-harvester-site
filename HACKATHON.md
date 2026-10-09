@@ -4,6 +4,7 @@
 
 - Site: https://nuantree.github.io/swarm-harvester-site/ (live data) · IMD-hosted original: https://harvest.sites.imd.fun
 - Chain: Ethereum mainnet
+- **IMD explorer (prompt, agents, checks, token):** https://explorer.imd.fun/jobs/dc212460-0a28-4e3f-9485-2340b7051f1e
 - X: [@HarvestIMD](https://x.com/HarvestIMD) · Dev: [@nuantree](https://x.com/nuantree)
 - Prize wallet: 0xb1292411d17f540e7b7bcb9928b4a62fc3d8a22e
 
