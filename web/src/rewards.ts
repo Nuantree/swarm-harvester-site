@@ -97,6 +97,41 @@ async function request(url: string) {
     );
   return response.json();
 }
+type WalletSnapshot = {
+  earned: Earned;
+  claims: Record<string, { claim: ClaimProof | null }>;
+};
+const walletSnapshots = new Map<string, Promise<WalletSnapshot>>();
+function walletSnapshot(wallet: Address) {
+  const key = wallet.toLowerCase();
+  let pending = walletSnapshots.get(key);
+  if (!pending) {
+    pending = fetch(`${services.snapshot}/wallets/${key}.json`, {
+      signal: AbortSignal.timeout(20000),
+    }).then((response) => {
+      // A wallet missing from the snapshot holds no allocations.
+      if (response.status === 404)
+        return { earned: { claimable: [], unlocks: [] }, claims: {} };
+      if (!response.ok)
+        throw new Error(
+          `The reward snapshot returned HTTP ${response.status}. Retry or import the JSON responses.`,
+        );
+      return response.json();
+    });
+    pending.catch(() => walletSnapshots.delete(key));
+    walletSnapshots.set(key, pending);
+  }
+  return pending;
+}
+// The IMD services do not send CORS headers to static sites, so a failed
+// direct request falls back to the hourly snapshot of the same responses.
+async function withSnapshot<T>(url: string, fallback: () => Promise<T>) {
+  try {
+    return (await request(url)) as T;
+  } catch {
+    return fallback();
+  }
+}
 export function parseEarned(data: unknown): Earned {
   const e = data as Earned;
   if (
@@ -157,7 +192,12 @@ export async function loadEarned(
 ): Promise<Earned> {
   return imported.earned
     ? parseEarned(imported.earned)
-    : parseEarned(await request(earnedUrl(wallet)));
+    : parseEarned(
+        await withSnapshot(
+          earnedUrl(wallet),
+          async () => (await walletSnapshot(wallet)).earned,
+        ),
+      );
 }
 export async function resolveRound(
   rt: Runtime,
@@ -210,7 +250,18 @@ export async function loadReward(
   try {
     if (!uuid(id)) throw new Error("Use the launch UUID from the explorer.");
     const record: LaunchRecord =
-      imported.launches?.[id] ?? (await request(launchUrl(id)));
+      imported.launches?.[id] ??
+      (await withSnapshot<LaunchRecord>(launchUrl(id), async () => {
+        const response = await fetch(
+          `${services.snapshot}/launches/${encodeURIComponent(id)}.json`,
+          { signal: AbortSignal.timeout(20000) },
+        );
+        if (!response.ok)
+          throw new Error(
+            "This launch is not in the reward snapshot yet. Retry later or import its record.",
+          );
+        return response.json();
+      }));
     if (
       record.id !== id ||
       record.chainId !== rt.config.chainId ||
@@ -292,8 +343,13 @@ export async function loadReward(
       row.pool = rt.config.poolKey;
     try {
       const response =
-        imported.claims?.[id] ?? (await request(claimUrl(id, wallet)));
-      const proof: ClaimProof = response.claim;
+        imported.claims?.[id] ??
+        (await withSnapshot<{ claim: ClaimProof | null }>(
+          claimUrl(id, wallet),
+          async () =>
+            (await walletSnapshot(wallet)).claims[id] ?? { claim: null },
+        ));
+      const proof: ClaimProof | null = response.claim;
       if (!proof)
         throw new Error("No allocation proof is available for this address.");
       const root = asHex(proof.root);

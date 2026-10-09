@@ -69,6 +69,10 @@ export type Deployment = {
 export const services = {
   explorer: "https://explorer.imd.fun",
   launches: "https://api.imd.fun",
+  // Hourly copy of the same public API data, served with CORS. Used only when
+  // the services above refuse a browser request.
+  snapshot:
+    "https://raw.githubusercontent.com/Nuantree/swarm-harvester-data/main/data",
 };
 export const erc20Abi = parseAbi([
   "function symbol() view returns (string)",
